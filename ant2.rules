@@ -1,0 +1,1 @@
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0a5c", ATTRS{idProduct}=="21e8", RUN+="/sbin/modprobe usbserial vendor=0x0a5c product=0x21e8", MODE="0666", OWNER="ari", GROUP="root"
