@@ -1,0 +1,3 @@
+[submodule "BLEHeartRateLogger"]
+	path = BLEHeartRateLogger
+	url = git@github.com:arii/BLEHeartRateLogger.git
