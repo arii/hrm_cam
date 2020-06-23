@@ -43,8 +43,9 @@ def write_text(image, text):
     if "Heart rate:" in text:
         try:
             text = re.search('[1-9][0-9][0-9]?', text).group(0)
-            fontscale = 100
-            thickness = 5
+            fontScale = 10
+            thickness = 10
+            org = (100, 300)
         except:
             pass
     return cv2.putText(image, text, org, font,  fontScale, color, thickness, cv2.LINE_AA) 
