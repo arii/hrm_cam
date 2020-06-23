@@ -1,6 +1,26 @@
-   
+
+    sudo setup_video_loopback.sh 
+OR 
    sudo modprobe v4l2loopback devices=2
    sudo modprobe v4l2loopback devices=1 video_nr=2 card_label="v4l2loopback" exclusive_caps=1
+
+
+# remove hcitool gatttool permissions:
+    sudo setcap cap_net_raw+ep /usr/bin/hcitool 
+    sudo setcap cap_net_raw+ep /usr/bin/gatttool
+
+
+
+currently depends on ROS, but that was a quick fix.  TODO is removing that
+* opencv
+* pyfakewebcam
+* v4l2loopback 
+* hcitool
+* gatttool
+
+comments below were exploring bluetooth ant, but didn't seem to work.  Not sure we need the modprobe usbserial with hcitool solution. 
+
+-----
 
 
 plug in bluetooth device -- do lsusb to get the idVendor:idProduct eg
@@ -26,9 +46,7 @@ dmesg | grep -i bluetooth | grep -i firmware
  instlaling updated drivers here: https://github.com/winterheart/broadcom-bt-firmware
  
 
-# remove hcitool gatttool permissions:
-sudo setcap cap_net_raw+ep /usr/bin/hcitool 
-sudo setcap cap_net_raw+ep /usr/bin/gatttool
-
 
 https://johannesbader.ch/blog/track-your-heartrate-on-raspberry-pi-with-ant/
+
+https://elder.dev/posts/open-source-virtual-background/
