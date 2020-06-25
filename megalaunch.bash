@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #
-interactive="shopt -q login_shell && echo 'Login shell' || echo 'Not login shell'
-[[ $- == *i* ]] && echo 'Interactive' || echo 'Not interactive'"
+#interactive="shopt -q login_shell && echo 'Login shell' || echo 'Not login shell'
+#[[ $- == *i* ]] && echo 'Interactive' || echo 'Not interactive'"
 source ~/.bashrc
 
-tmux new -d -s pr2mux 'echo "roscore"; roscore; bash' \; \
-    new-window -d -n sim 'echo "cv2"; sleep 1; python passthru.py '\; \
-    new-window -d -n rviz 'echo "hrmpub"; sleep 1; python BLEHeartRateLogger/BLEHeartRateLogger.py '\; \
-    new-window -d -n fplay 'echo "ffplay"; sleep 5; ffplay /dev/video2; bash'\; \
+tmux new -d -s pr2mux 'roscore' \; \
+    new-window -n sim 'sleep 2; python3 passthru.py '\; \
+    new-window -d -n rviz 'sleep 2; python3 BLEHeartRateLogger/BLEHeartRateLogger.py '\; \
+    new-window -d -n fplay 'sleep 5; ffplay /dev/video2; bash'\; \
 		attach \;
 
