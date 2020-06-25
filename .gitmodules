@@ -1,3 +1,9 @@
 [submodule "BLEHeartRateLogger"]
 	path = BLEHeartRateLogger
 	url = git@github.com:arii/BLEHeartRateLogger.git
+[submodule "v4l2loopback"]
+	path = v4l2loopback
+	url = git@github.com:umlaeute/v4l2loopback.git
+[submodule "pyfakewebcam"]
+	path = pyfakewebcam
+	url = git@github.com:jremmons/pyfakewebcam.git

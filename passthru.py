@@ -56,7 +56,11 @@ def write_text(image, text):
 
 cap = cv2.VideoCapture('/dev/video0')
 
-height, width = 720, 1280
+if cap.isOpened():
+    width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))   # float
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) # float
+
+#height, width = 720, 1280
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
 
@@ -67,7 +71,7 @@ cap.set(cv2.CAP_PROP_FPS, 60)
 
 # setup the fake camera
 
-fake = pyfakewebcam.FakeWebcam('/dev/video1', width, height)
+fake = pyfakewebcam.FakeWebcam('/dev/video2', width, height)
 
 
 # frames forever
